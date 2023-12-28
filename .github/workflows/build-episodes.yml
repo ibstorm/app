@@ -20,7 +20,7 @@ jobs:
             repo: ibstorm
             tag: intro
 
-          # # Episode 2.
+          # # Episode 2. no need any more
           # - episode: '02'
           #   dockerfile: Dockerfile
           #   repo: kube101

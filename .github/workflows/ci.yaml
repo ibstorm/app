@@ -43,13 +43,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
-      - name: Get latest tag
-        id: get_latest_tag
-        run: echo "::set-output name=tag::$(git describe --abbrev=0 --tags)"
-
-      - name: Increment version
-        id: increment_version
-        run: echo "::set-output name=tag::$(semver bump patch ${{ steps.get_latest_tag.outputs.tag }})"
+      
 #      - name: Set tag version
 #        uses: auto-generate-next-release-tag@v1
 #        id: generate-tag-version

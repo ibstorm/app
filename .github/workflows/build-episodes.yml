@@ -54,4 +54,4 @@ jobs:
           file: ./app-${{ matrix.episode }}/${{ matrix.dockerfile }}
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ibstorm/${{ matrix.repo }}:${{ matrix.tag }}
+          tags: bahajian/${{ matrix.repo }}:${{ matrix.tag }}

@@ -4,10 +4,10 @@ name: Build App Image
 on:
   push:
     branches:
-      - master
-  pull_request_target:
-    branches:
       - main
+  # pull_request_target:
+  #   branches:
+  #     - main
 
 jobs:
   docker-image-builds:

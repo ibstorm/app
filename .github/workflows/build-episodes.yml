@@ -18,7 +18,7 @@ jobs:
           - episode: '01'
             dockerfile: Dockerfile
             repo: ibstorm
-            tag: intro
+            tag: v0.0.1
 
           # # Episode 2. no need any more
           # - episode: '02'
@@ -37,6 +37,14 @@ jobs:
           #   tag: '1.1.0'
 
     steps:
+      - name: Set tag version
+        uses: auto-generate-next-release-tag@v1
+        id: generate-tag-version
+
+      - name: Create tag
+        run: |
+          git tag ${{ steps.generate-tag-version.outputs.next_release_tag }}
+          git push origin ${{ steps.generate-tag-version.outputs.next_release_tag }}
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1

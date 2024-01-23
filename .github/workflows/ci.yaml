@@ -21,7 +21,7 @@ jobs:
           - episode: '01'
             dockerfile: Dockerfile
             repo: ibstorm
-            tag: ${{ steps.meta.outputs.tags }}
+            tag: v0.0.1
 
           # # Episode 2. no need any more
           # - episode: '02'
@@ -65,4 +65,4 @@ jobs:
           file: ./app-${{ matrix.episode }}/${{ matrix.dockerfile }}
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: bahajian/${{ matrix.repo }}:${{ matrix.tag }}
+          tags: bahajian/${{ matrix.repo }}:${{ steps.meta.outputs.tags }}

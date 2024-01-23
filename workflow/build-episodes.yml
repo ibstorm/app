@@ -18,7 +18,7 @@ jobs:
           - episode: '01'
             dockerfile: Dockerfile
             repo: ibstorm
-            tag: v0.0.1
+            tag: ${{ steps.meta.outputs.tags }}
 
           # # Episode 2. no need any more
           # - episode: '02'

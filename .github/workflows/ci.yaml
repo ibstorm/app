@@ -65,5 +65,5 @@ jobs:
           file: ./app-${{ matrix.episode }}/${{ matrix.dockerfile }}
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.repo }}:${{ github.event.release.name }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.repo }}:${{ steps.version.outputs.version }}
           labels: vvvv${{ steps.meta.outputs.labels }}

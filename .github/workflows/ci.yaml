@@ -44,8 +44,6 @@ jobs:
       - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v2
       
-      - run: echo "Name: ${{ github.event.release.name }} Description: ${{ github.event.release.body }}"
-      
 #      - name: Set tag version
 #        uses: auto-generate-next-release-tag@v1
 #        id: generate-tag-version
@@ -67,5 +65,5 @@ jobs:
           file: ./app-${{ matrix.episode }}/${{ matrix.dockerfile }}
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.repo }}:v${{ github.event.release.name }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.repo }}:${{ github.event.release.name }}
           labels: vvvv${{ steps.meta.outputs.labels }}

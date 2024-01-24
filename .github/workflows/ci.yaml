@@ -6,6 +6,8 @@ on:
     branches:
       - main
       - staging
+    tags:
+      - "**"
   # pull_request_target:
   #   branches:
   #     - main

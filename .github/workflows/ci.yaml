@@ -45,6 +45,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v2
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
         
 #      - name: Set tag version
 #        uses: auto-generate-next-release-tag@v1
@@ -67,5 +70,5 @@ jobs:
           file: ./app-${{ matrix.episode }}/${{ matrix.dockerfile }}
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.repo }}:v${{ steps.version.outputs.version }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.repo }}:v${{ steps.version.outputs.version }}v${{ steps.meta.outputs.tags }}
           labels: vvvv${{ steps.meta.outputs.labels }}

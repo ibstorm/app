@@ -23,7 +23,7 @@ jobs:
           - episode: '01'
             dockerfile: Dockerfile
             repo: ibstorm
-            tag: v0.0.1
+            tag: '0.0.1'
 
           # # Episode 2. no need any more
           # - episode: '02'
@@ -70,7 +70,8 @@ jobs:
         with:
           context: ./app-${{ matrix.episode }}/
           file: ./app-${{ matrix.episode }}/${{ matrix.dockerfile }}
-          platforms: linux/amd64,linux/arm64
+#          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.repo }}:v${{ steps.version.outputs.version }}v${{ steps.meta.outputs.tags }}
-          labels: vvvv${{ steps.meta.outputs.labels }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.repo }}:v${{ steps.version.outputs.version }}${{ steps.meta.outputs.tags }}
+#          labels: ${{ steps.meta.outputs.labels }}
